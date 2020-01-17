@@ -1,0 +1,15 @@
+Package: DysRegSig
+Type: Package
+Title: Inlement gene Dysregulation analysis and build predictive signature with explanatory power
+Version: 2.2.1
+Authors@R: person("Quanxue", "Li", email = "quanxueli@163.com", role = c("aut", "cre"))
+Description: Inlement gene Dysregulation analysis and build predictive signature with explanatory power.
+Depends: R (>= 3.5.1)
+License: GPL (> 2)
+Encoding: UTF-8
+Imports: Boruta, limma, glmnet, ggpubr, igraph, expm, flare, RGBM, survival, survcomp
+LazyLoad: yes
+LazyData: true
+Repository: CRAN
+NeedsCompilation: no
+RoxygenNote: 6.0.1

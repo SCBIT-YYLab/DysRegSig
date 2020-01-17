@@ -1,0 +1,77 @@
+CHANGES IN VERSION 2.2.1
+-------------------------
+    o Add the one other method for construct conditional GRN, RGBM.
+      
+    o Add the choose for differential expression analysis.
+	  
+	  
+CHANGES IN VERSION 2.2.0
+-------------------------
+    o Add function combineDysreg(). This function implementat conbination 
+	  of dysregulations for building predictive signature with genetic algorithm.
+	  
+	o Add function RankDysreg().  
+	  
+	o Add function RankDysTF().
+	  
+	  
+CHANGES IN VERSION 2.1.0
+------------------------
+    o Add function DiffCor().
+	  
+	o Add function DiffCorplus().  
+	  
+
+CHANGES IN VERSION 2.0.0
+------------------------
+    o Build funciton condiGRN() for building conditional GRN by using Boruta algorithm. 
+      
+    o Build function quantiReg().
+	  
+	o Build function DysReg().
+	  
+	o Build function plotDysregExp().
+	  
+	  
+CHANGES IN VERSION 1.9.0
+-------------------------
+    o Optimization: For differential regulation, de-based LASSO is 
+      used to quantified regualtory intensity and its confidential 
+	  interal. If if 95%, or user defined other, confidence intervals 
+	  of the regression coefficient have no overlap between normal and 
+	  cancer conditions, the regulatory intensity could be regarded as 
+	  significantly differential.
+	  
+
+CHANGES IN VERSION 1.8.0
+-------------------------
+    o Optimization: use Boruta to to feature selection before regression.
+      
+	  
+CHANGES IN VERSION 1.5.0
+-------------------------
+    o Optimization: use LASSO to to feature selection before regression.
+      
+	  
+CHANGES IN VERSION 1.3.0
+-------------------------
+    o Update the refence gene regulatory network from humanTF database.
+      
+	  
+CHANGES IN VERSION 1.1.0
+-------------------------
+    o Optimization: use student distribution to replace boostrap.
+      
+	  
+CHANGES IN VERSION 1.0.0
+------------------------
+    o Workflow: Propose a gene dysregulation framework, which integrates 
+      three aspects of information regarding differential regulation,
+	  differential expression and the regulation contribution of regulator 
+	  to target. Specifically, for the differential regulation, the diffence 
+	  of regulatory intensity is quantified based on step-wise regression.
+	  Bootstrap is used to the regulations whose regulatory intensity is 
+	  significantly changed. See Li, Q., et al, Differential regulation 
+	  analysis reveals dysfunctional regulatory mechanism involving 
+	  transcription factors and microRNAs in gastric carcinogenesis. 
+	  Artif Intell Med, 2017, 77: 12-22.
