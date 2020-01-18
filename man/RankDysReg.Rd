@@ -4,10 +4,10 @@
 \alias{RankDysReg}
 \title{Rank dysregulatin}
 \usage{
-RankDysReg(dysreg)
+RankDysReg(dysreg.res)
 }
 \arguments{
-\item{dysreg}{The results of \code{dysreg}.}
+\item{dysreg.res}{The results of \code{dysreg}.}
 }
 \value{
 The rank of dysregulations.
@@ -39,7 +39,7 @@ dysreg.out <- DysReg(exp.1 = temp.1, exp.2 = temp.2, tf2tar,
                      de.genes = NULL, de.pval = 0.05, 
                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
                      
-dysreg.res <- dysreg.out$dysreg.res
+dysreg.res <- dysreg.out$dysreg
 reg.rank <- RankDysReg(dysreg.res)
 }
 

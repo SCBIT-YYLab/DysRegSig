@@ -39,7 +39,7 @@ dysreg.out <- DysReg(exp.1 = temp.1, exp.2 = temp.2, tf2tar,
                      de.genes = NULL, de.pval = 0.05, 
                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
 
-dysreg.res <- dysreg.out$dysreg.res
+dysreg.res <- dysreg.out$dysreg
 
 tf.rank <- RankDysTF(dysreg.res)
 }

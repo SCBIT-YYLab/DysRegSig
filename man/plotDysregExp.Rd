@@ -55,11 +55,11 @@ dysreg.out <- DysReg(exp.1 = temp.1, exp.2 = temp.2, tf2tar,
                      de.genes = NULL, de.pval = 0.05, 
                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
 
-dysreg.res <- dysreg.out$dysreg.res
+dysreg.res <- dysreg.out$dysreg
 
 plotDysregExp(tf = dysreg.res$TF[1], tar = dysreg.res$Target[1],
               exp.1 = exp.1,exp.2 = exp.2, exp1.lab = 'PD',exp2.lab = 'RP',
-              dysreg = dysreg.res, method ='dysreg', scaled=T, conf.int.level = 0.95)
+              dysreg = dysreg.res, method ='dysreg', conf.int.level = 0.95)
               
 }
 

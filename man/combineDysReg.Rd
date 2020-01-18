@@ -57,6 +57,9 @@ dysreg.out <- DysReg(exp.1 = exp.1, exp.2 = exp.2, tf2tar,
                      de.genes = NULL, de.pval = 0.05, 
                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
 
+dysreg.res <- dysreg.out$dysreg
+dysreg <- dysreg.res[,1:2]
+
 data(clin_data)
 head(clin_data)
 pheno.data <- clin_data[,c(1,3,4)]
@@ -71,12 +74,10 @@ combdysreg.out <- combineDysReg(dysreg = dysreg, exp.data = exp,
 best.fit <- combdysreg.out$best.fitness
 best.individ <- combdysreg.out$individ
 head(best.fit)
-summary(best.fit)
+summary(best.fit$fitness)
 
 ##Check the individ with the best fitness
 best.individ[which.max(best.fit$fitness),]
-
-
                                                                  
 }
 

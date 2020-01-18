@@ -39,7 +39,7 @@ The results of gene dysregulation analysis:
  \item{quanti.reg.1}{The quantification of regulatory intensity for exp.1.}
  \item{net.2}{The conditional GRN for exp.2.}
  \item{quanti.reg.2}{The quantification of regulatory intensity for exp.2.}
- \item{dysreg.res}{The identified gene dysregulations}
+ \item{dysreg}{The identified gene dysregulations}
  
  @seealso condiGRN, quantiReg.
 }

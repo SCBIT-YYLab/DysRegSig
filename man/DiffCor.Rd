@@ -36,7 +36,7 @@ group.1 <- clin_data$sample[which(clin_data$ResponseLevel == 'PD')]
 exp.1 <- exp[,colnames(exp) \%in\% group.1]
 
 group.2 <- clin_data$sample[which(clin_data$ResponseLevel \%in\% c('CR','PR','SD'))]
-exp.2 <- exp[test.genes,colnames(exp) \%in\% group.2]
+exp.2 <- exp[,colnames(exp) \%in\% group.2]
 
 dc.res <- DiffCor(exp.1, exp.2, tf2tar, 
                   cor.method = 'pearson', p.adj = 'BH')
