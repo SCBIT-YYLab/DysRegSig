@@ -3,7 +3,7 @@ Type: Package
 Title: Inlement gene Dysregulation analysis and build predictive signature with explanatory power
 Version: 2.2.1
 Authors@R: person("Quanxue", "Li", email = "quanxueli@163.com", role = c("aut", "cre"))
-Description: Inlement gene Dysregulation analysis and build predictive signature with explanatory power.
+Description: DysRegSig is capable of exploring gene dysregulations from high-dimensional data, ranking dysregulations and relevant TFs, and building explanatory signature based on gene dysregulations.
 Depends: R (>= 3.5.1)
 License: GPL (> 2)
 Encoding: UTF-8
