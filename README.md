@@ -1,5 +1,5 @@
 ## DysRegSig
-Implement gene dysregulation analysis and build predictive signature with explanatory power.
+DysRegSig is capable of exploring gene dysregulations from high-dimensional data, ranking dysregulations and relevant TFs, and building explanatory signature based on gene dysregulations.
 
 ## Installation
 Use devtools to install DRAP package directly from github.
