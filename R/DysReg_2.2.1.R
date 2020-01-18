@@ -272,7 +272,7 @@ quantiReg <- function(exp, net, ci = 0.95){
 #'  \item{quanti.reg.1}{The quantification of regulatory intensity for exp.1.}
 #'  \item{net.2}{The conditional GRN for exp.2.}
 #'  \item{quanti.reg.2}{The quantification of regulatory intensity for exp.2.}
-#'  \item{dysreg.res}{The identified gene dysregulations}
+#'  \item{dysreg}{The identified gene dysregulations}
 #'  
 #'  @seealso condiGRN, quantiReg.
 #'  
@@ -506,7 +506,7 @@ DysReg <- function(exp.1, exp.2, tf2tar, de.genes = NULL,
 #' exp.1 <- exp[,colnames(exp) %in% group.1]
 #' 
 #' group.2 <- clin_data$sample[which(clin_data$ResponseLevel %in% c('CR','PR','SD'))]
-#' exp.2 <- exp[test.genes,colnames(exp) %in% group.2]
+#' exp.2 <- exp[,colnames(exp) %in% group.2]
 #' 
 #' dc.res <- DiffCor(exp.1, exp.2, tf2tar, 
 #'                   cor.method = 'pearson', p.adj = 'BH')
@@ -818,11 +818,11 @@ DiffCorPlus <- function(exp.1,exp.2, tf2tar,  de.genes = NULL,
 #'                      de.genes = NULL, de.pval = 0.05, 
 #'                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
 #' 
-#' dysreg.res <- dysreg.out$dysreg.res
+#' dysreg.res <- dysreg.out$dysreg
 #' 
 #' plotDysregExp(tf = dysreg.res$TF[1], tar = dysreg.res$Target[1],
 #'               exp.1 = exp.1,exp.2 = exp.2, exp1.lab = 'PD',exp2.lab = 'RP',
-#'               dysreg = dysreg.res, method ='dysreg', scaled=T, conf.int.level = 0.95)
+#'               dysreg = dysreg.res, method ='dysreg', conf.int.level = 0.95)
 #'               
 #' }
 #' 
@@ -837,7 +837,7 @@ plotDysregExp <- function(tf, tar, exp.1, exp.2, exp1.lab, exp2.lab,
                         Group=exp2.lab,stringsAsFactors = F))
 
   if(method == 'dysreg'){
-    reg.i=dysreg.res[dysreg.res$TF==tf & dysreg.res$Target==tar,]
+    reg.i=dysreg[dysreg$TF==tf & dysreg$Target==tar,]
     
     sp <- ggscatter(data, x = "TF", y = "Target",
                     add = "reg.line", conf.int = TRUE, conf.int.level = conf.int.level,
@@ -906,9 +906,9 @@ plotDysregExp <- function(tf, tar, exp.1, exp.2, exp1.lab, exp2.lab,
 #' @name RankDysReg
 #' @title Rank dysregulatin
 #' @description Rank dysregualtion by differential regulation and differential expression.
-#' @usage RankDysReg(dysreg)
+#' @usage RankDysReg(dysreg.res)
 #' 
-#' @param dysreg The results of \code{dysreg}.
+#' @param dysreg.res The results of \code{dysreg}.
 #' 
 #' 
 #' @return The rank of dysregulations.
@@ -937,13 +937,13 @@ plotDysregExp <- function(tf, tar, exp.1, exp.2, exp1.lab, exp2.lab,
 #'                      de.genes = NULL, de.pval = 0.05, 
 #'                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
 #'                      
-#' dysreg.res <- dysreg.out$dysreg.res
+#' dysreg.res <- dysreg.out$dysreg
 #' reg.rank <- RankDysReg(dysreg.res)
 #' }
 #' 
 #' @export
 
-RankDysReg <- function(dysreg){
+RankDysReg <- function(dysreg.res){
   
   net.i <- dysreg.res
   net.i$weight <- abs((net.i$unb.coef.y - net.i$unb.coef.x) * net.i$logFC)
@@ -994,7 +994,7 @@ RankDysReg <- function(dysreg){
 #'                      de.genes = NULL, de.pval = 0.05, 
 #'                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
 #' 
-#' dysreg.res <- dysreg.out$dysreg.res
+#' dysreg.res <- dysreg.out$dysreg
 #' 
 #' tf.rank <- RankDysTF(dysreg.res)
 #' }
@@ -1070,6 +1070,9 @@ RankDysTF <- function(dysreg.res){
 #' dysreg.out <- DysReg(exp.1 = exp.1, exp.2 = exp.2, tf2tar, 
 #'                      de.genes = NULL, de.pval = 0.05, 
 #'                      grn.method = 'Boruta', pValue = 0.01, ci = 0.90)
+#'
+#' dysreg.res <- dysreg.out$dysreg
+#' dysreg <- dysreg.res[,1:2]
 #' 
 #' data(clin_data)
 #' head(clin_data)
@@ -1089,8 +1092,6 @@ RankDysTF <- function(dysreg.res){
 #' 
 #' ##Check the individ with the best fitness
 #' best.individ[which.max(best.fit$fitness),]
-#' 
-#' 
 #'                                                                  
 #' }
 #' 
@@ -1231,7 +1232,6 @@ evolution <- function(pop, pop.obj, obj.value, pop.size = pop.size,
   
   return(children.pop)
 }
-
 
 
 
