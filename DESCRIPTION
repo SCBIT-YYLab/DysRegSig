@@ -7,7 +7,7 @@ Description: DysRegSig is capable of exploring gene dysregulations from high-dim
 Depends: R (>= 3.5.1)
 License: GPL (> 2)
 Encoding: UTF-8
-Imports: Boruta, limma, glmnet, ggpubr, igraph, expm, flare, RGBM, survival, survcomp
+Imports: Boruta, limma, glmnet, ggpubr, ggplot2, igraph, expm, flare, RGBM, survival, survcomp
 LazyLoad: yes
 LazyData: true
 Repository: CRAN
