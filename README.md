@@ -15,6 +15,6 @@ Use devtools to install DysRegSig package directly from github.
 ## Input data
 
 
-## guidline
+## guideline
 
 
