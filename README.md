@@ -1,5 +1,5 @@
 ## DysRegSig
-DysRegSig is capable of exploring gene dysregulations from high-dimensional data, ranking dysregulations and relevant TFs, and building explanatory signature based on gene dysregulations.
+DysRegSig is capable of exploring gene dysregulations from high-dimensional data, ranking dysregulations and relevant TFs, and building mechanistic signature based on gene dysregulations.
 
 ## Installation
 DysRegSig dependents packages Boruta, limma, glmnet, ggpubr, ggplot2, igraph, expm, flare, RGBM, survival, and survcomp.
