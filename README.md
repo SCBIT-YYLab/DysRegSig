@@ -5,6 +5,8 @@ DysRegSig is capable of exploring gene dysregulations from high-dimensional data
 DysRegSig dependents packages Boruta, limma, glmnet, ggpubr, ggplot2, igraph, expm, flare, RGBM, survival, and survcomp.
 At first, a Bioconductor package needed to be pre-installed:
 
+if(!require(BiocManager)) install.packages("BiocManager")
+
 library(BiocManager)
 
 install('survcomp')
