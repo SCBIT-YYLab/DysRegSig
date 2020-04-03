@@ -12,6 +12,7 @@ library(BiocManager)
 install('survcomp')
 
 
+
 Then use devtools to install DysRegSig package directly from github.
 
 if(!require(devtools)) install.packages("devtools")
