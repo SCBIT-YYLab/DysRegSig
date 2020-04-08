@@ -1,0 +1,106 @@
+CHANGES IN VERSION 2.2.3
+-------------------------
+    o Add the fitness function fitness.AUC() for building signature for binary cancer phenotypes.      
+	  
+	o Add the function DysRegClin() for exploring the correlation of individual dysregulation 
+	  to clinical factors.
+     
+	o Add the function plotDysRegKM() for visualizeing KM curves between subgroups 
+	  divided by the expression of two genes among a gene dysregulation. 
+	  
+	  
+CHANGES IN VERSION 2.2.2
+-------------------------      
+	o Add the original type of function DiffCor().
+      
+    o Rectify the function DiffCor() and DiffCorplus() in previous version 
+	  to DiffReg() and DiffRegplus().
+	       
+	  
+CHANGES IN VERSION 2.2.1
+-------------------------
+    o Add an alternative method for construct conditional GRN, RGBM.
+      
+    o Add the choices for differential expression analysis. Users could 
+	  offer their own differential expression gene list 
+	  in function DysReg and DiffCorplus.
+	  
+	  
+CHANGES IN VERSION 2.2.0
+-------------------------
+    o Add function combineDysreg(). This function explores the best conbination 
+	  of dysregulations for building predictive signature with mechanistic 
+	  interpretability by using genetic algorithm.
+	  
+	o Add the fitness function fitness.Cindex() for building signature for prognosis.      
+
+	o Add function RankDysreg().  
+	  
+	o Add function RankDysTF().
+	  
+	  
+CHANGES IN VERSION 2.1.0
+------------------------
+    o Add function DiffCor().
+	  
+	o Add function DiffCorplus().  
+	  
+	  
+CHANGES IN VERSION 2.0.0
+------------------------
+    o Build funciton condiGRN() for building conditional GRN by using Boruta algorithm. 
+      
+    o Build function quantiReg() for quantifying regualtory intensity and its confidence interal.
+	  
+	o Build function DysReg() for implement gene dysregulation analysis.
+	  
+	o Build function plotDysregExp() for visualizing the expression pattern 
+	  of a dysregulation between conditions.
+	  
+	  
+CHANGES IN VERSION 1.9.0
+-------------------------
+    o Optimization: For differential regulation, de-based LASSO is 
+      used to quantified regualtory intensity and its confidence 
+	  interal. If if 95%, or user defined other, confidence intervals 
+	  of the regression coefficient have no overlap between two conditions, 
+	  the regulatory intensity could be regarded as significantly differential.
+	  
+
+CHANGES IN VERSION 1.8.0
+-------------------------
+    o Optimization: use random forest-based feature selection algorithm Boruta to 
+	  build condtional GRN.
+      
+	  
+CHANGES IN VERSION 1.5.0
+-------------------------
+    o Optimization: use LASSO to build condtional GRN and quantify the regualtory intensity.
+      
+	  
+CHANGES IN VERSION 1.3.0
+-------------------------
+    o Update the refence gene regulatory network (GRN). Collect TF list and TF motifs datasets 
+	  from humanTF database. Use FIMO to predict the potential binding site of all protein-coding 
+	  genes. The TF-target links output from FIMO after multi-hypothesis test correction was 
+	  composed the reference GRN.
+      
+	  
+CHANGES IN VERSION 1.1.0
+-------------------------
+    o Optimization: use student t distribution to replace boostrapping to 
+	  speed up the running rate.
+      
+	  
+CHANGES IN VERSION 1.0.0
+------------------------
+    o Workflow: Propose a strategy for gene dysregulation analysis, which integrates 
+      three aspects of information regarding change of regulatory intensity, change of
+	  target  expression, and the regulatory contribution of regulator to target. The 
+	  change of regulatory intensity was quantified by coefficient and its standard error 
+	  exported from step-wise regression. Bootstrapping was used to identify the regulations 
+	  whose regulatory intensity is significantly changed. More details could be found 
+	  in the publication: 
+	  Differential regulation analysis reveals dysfunctional regulatory mechanism 
+	  involving transcription factors and microRNAs in gastric carcinogenesis. 
+	  Artif Intell Med, 2017, 77: 12-22.
