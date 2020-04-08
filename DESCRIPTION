@@ -1,15 +1,20 @@
 Package: DysRegSig
 Type: Package
 Title: Implement gene dysregulation analysis and build predictive signature with explanatory power
-Version: 2.2.1
-Authors@R: person("Quanxue", "Li", email = "quanxueli@163.com", role = c("aut", "cre"))
-Description: DysRegSig is capable of exploring gene dysregulations from high-dimensional data, ranking dysregulations and relevant TFs, and building explanatory signature based on gene dysregulations.
-Depends: R (>= 3.5.1)
+Version: 2.2.3
+Author: Quanxue Li, Wentao Dai, Jixiang Liu, Yi-Xue Li, Yuan-Yuan Li
+Maintainer: Quanxue Li <quanxueli@163.com>
+Description: DysRegSig is a robust tool to perform gene dysregulation analysis. The main improvement of DysRegSig is that it can consider the combinational effect of multiple regulators to target in gene dysregulation analysis. DysRegSig also offers tools to implement following analysis, including module for exploring the association of individual gene dysregulaiton to clinical factors, module for ranking dysregulated regulations and TFs, and module for building mechanistic signature with gene dysregulations by using genetic algorithm.
+Depends: R (>= 3.6.1)
 License: GPL (> 2)
 Encoding: UTF-8
-Imports: Boruta, limma, glmnet, ggpubr, ggplot2, igraph, expm, flare, RGBM, survival, survcomp
+Imports: Boruta, limma, glmnet, ggpubr, ggplot2, igraph, expm, flare, RGBM, survival, survcomp, survminer, ROCR, pROC, e1071
 LazyLoad: yes
 LazyData: true
 Repository: CRAN
 NeedsCompilation: no
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
