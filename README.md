@@ -54,7 +54,8 @@ The expression pattern of two genes in one gene dysregulaiton could be visulazie
 
 ```{r, eval = FALSE}
 plotDysregExp(tf = dysreg.res$TF[1], tar = dysreg.res$Target[1],
-              exp.1 = exp.1,exp.2 = exp.2, exp1.lab = 'PD',exp2.lab = 'RP',
+              exp.1 = exp.1,exp.2 = exp.2, 
+              exp1.lab = 'Response',exp2.lab = 'No-response',
               dysreg = dysreg.res, method ='dysreg', conf.int.level = 0.95)
 ```
 
