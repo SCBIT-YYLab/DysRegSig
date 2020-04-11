@@ -5,10 +5,10 @@ Version: 2.2.3
 Author: Quanxue Li, Wentao Dai, Jixiang Liu, Yi-Xue Li, Yuan-Yuan Li
 Maintainer: Quanxue Li <quanxueli@163.com>
 Description: DysRegSig is a robust tool to perform gene dysregulation analysis. The main improvement of DysRegSig is that it can consider the combinational effect of multiple regulators to target in gene dysregulation analysis. DysRegSig also offers tools to implement following analysis, including module for exploring the association of individual gene dysregulaiton to clinical factors, module for ranking dysregulated regulations and TFs, and module for building mechanistic signature with gene dysregulations by using genetic algorithm.
-Depends: R (>= 3.6.1)
+Depends: R (>= 3.6.0)
 License: GPL (> 2)
 Encoding: UTF-8
-Imports: Boruta, limma, glmnet, ggpubr, ggplot2, igraph, expm, flare, RGBM, survival, survcomp, survminer, ROCR, pROC, e1071
+Imports: Boruta, limma, glmnet, ggpubr, ggplot2, reshape2, igraph, expm, flare, RGBM, survival, survcomp, survminer, ROCR, pROC, e1071
 LazyLoad: yes
 LazyData: true
 Repository: CRAN
