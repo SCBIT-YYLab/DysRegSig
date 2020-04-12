@@ -543,7 +543,7 @@ DysReg <- function(exp.1, exp.2, tf2tar, de.genes = NULL,
     subset(dysreg,
            dysreg$high.condition == 1 & (dysreg$unb.coef.2 - dysreg$unb.coef.1) < 0),
     subset(dysreg, 
-           dysreg$high.condition == 2 & (dysreg$unb.coef.1 - dysreg$unb.coef.1) > 0))
+           dysreg$high.condition == 2 & (dysreg$unb.coef.2 - dysreg$unb.coef.1) > 0))
   
   dysreg.res <- list(de.genes = de.genes,
                      dysreg = dysreg)
