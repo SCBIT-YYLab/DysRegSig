@@ -1,22 +1,3 @@
-CHANGES IN VERSION 2.2.3
--------------------------
-    o Add the fitness function fitness.AUC() for building signature for binary cancer phenotypes.      
-	  
-	o Add the function DysRegClin() for exploring the correlation of individual dysregulation 
-	  to clinical factors.
-     
-	o Add the function plotDysRegKM() for visualizeing KM curves between subgroups 
-	  divided by the expression of two genes among a gene dysregulation. 
-	  
-	  
-CHANGES IN VERSION 2.2.2
--------------------------      
-	o Add the original type of function DiffCor().
-      
-    o Rectify the function DiffCor() and DiffCorplus() in previous version 
-	  to DiffReg() and DiffRegplus().
-	       
-	  
 CHANGES IN VERSION 2.2.1
 -------------------------
     o Add an alternative method for construct conditional GRN, RGBM.
