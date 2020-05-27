@@ -1,3 +1,12 @@
+CHANGES IN VERSION 2.2.2
+-------------------------
+    o Add the fitness function fitness.AUC() for building signature for binary cancer phenotypes.   	
+	 
+    o Optimize functions DysReg, DiffCor, combineDysreg to show the running progression.   	
+	 
+    o Optimize the descriptions of parameters.
+	 
+	  
 CHANGES IN VERSION 2.2.1
 -------------------------
     o Add an alternative method for construct conditional GRN, RGBM.
@@ -15,7 +24,7 @@ CHANGES IN VERSION 2.2.0
 	  
 	o Add the fitness function fitness.Cindex() for building signature for prognosis.      
 
-	o Add function RankDysreg().  
+	o Add function RankDysReg().  
 	  
 	o Add function RankDysTF().
 	  
@@ -24,7 +33,7 @@ CHANGES IN VERSION 2.1.0
 ------------------------
     o Add function DiffCor().
 	  
-	o Add function DiffCorplus().  
+	o Add function DiffCorPlus().  
 	  
 	  
 CHANGES IN VERSION 2.0.0
