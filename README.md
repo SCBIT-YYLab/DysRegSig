@@ -40,8 +40,6 @@ exp.1 <- ExpData[,colnames(ExpData) %in% group.1]
 group.2 <- ClinData$sample[which(ClinData$binaryResponse == 'SD/PD')]
 exp.2 <- ExpData[,colnames(ExpData) %in% group.2]
 
-set.seed(1234)
-
 dysreg.out <- DysReg(exp.1 = exp.1, exp.2 = exp.2, tf2tar, 
                      de.genes = NULL, de.pval = 0.05, 
                      grn.method = 'Boruta', 
