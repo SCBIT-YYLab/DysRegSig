@@ -1,5 +1,5 @@
 ## DysRegSig
-DysRegSig is a robust tools to perform gene dysregulation analysis. The main improvement of DysRegSig is that it can consider the cooperativity and synergy between regulators to target in gene dysregulation analysis. DysRegSig also offers tools to rank dysregulated regulations and TFs and construct mechanistic signature with gene dysregulations by using genetic algorithm.
+DysRegSig is is capable of robustly exploring gene dysregulations from high-dimensional expression data with cooperativity and synergy between regulators and several other transcriptional regulation rules taken into consideration. DysRegSig also offers tools to rank dysregulated regulations and TFs, and construct mechanistic signature with gene dysregulations by using genetic algorithm.
 
 ## Installation
 DysRegSig dependents packages Boruta, RGBM, glmnet, expm, flare, limma, ggpubr, ggplot2, reshape2, igraph, survival, survcomp, survminer, ROCR, pROC, e1071, and so on. At first, Bioconductor packages need to be pre-installed.
