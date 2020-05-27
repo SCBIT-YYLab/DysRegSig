@@ -1,10 +1,10 @@
 Package: DysRegSig
 Type: Package
-Title: Implement gene dysregulation analysis and build predictive signature with explanatory power
+Title: Gene dysregulation analysis and construction of mechanistic signature in cancer
 Version: 2.2.2
 Author: Quanxue Li, Wentao Dai, Jixiang Liu, Yi-Xue Li, Yuan-Yuan Li
 Maintainer: Quanxue Li <quanxueli@163.com>
-Description: DysRegSig is a robust tool to perform gene dysregulation analysis. The main improvement of DysRegSig is that it can consider the combinational effect of multiple regulators to target in gene dysregulation analysis. DysRegSig also offers tools to implement following analysis, including module for exploring the association of individual gene dysregulaiton to clinical factors, module for ranking dysregulated regulations and TFs, and module for building mechanistic signature with gene dysregulations by using genetic algorithm.
+Description: DysRegSig is is capable of robustly exploring gene dysregulations from high-dimensional expression data with cooperativity and synergy between regulators and several other transcriptional regulation rules taken into consideration. DysRegSig also offers tools to rank dysregulated regulations and TFs, and construct mechanistic signature with gene dysregulations by using genetic algorithm.
 Depends: R (>= 3.6.0)
 License: GPL (> 2)
 Encoding: UTF-8
