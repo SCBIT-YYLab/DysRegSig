@@ -61,7 +61,7 @@ plotDysregExp(tf = dysreg.res$TF[1], tar = dysreg.res$Target[1],
 
 ## Usage
 
-This package offers several methods for gene dysreualtion analysis, and follow-up analysis toos. The more details about uasge of **DysRegSig** can be found: 
+This package offers three methods for gene dysreualtion analysis, and follow-up analysis toos. The more details about uasge of **DysRegSig** can be found: 
 
 ```{r, eval = FALSE}
 vignette("DysRegSig")
