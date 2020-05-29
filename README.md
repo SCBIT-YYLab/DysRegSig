@@ -18,7 +18,7 @@ devtools::install_github('SCBIT-YYLab/DysRegSig')
 ```
 
 
-Users could also download the DysRegSig_2.2.3.tar.gz to local path, and install DysRegSig package from local path.
+Users could also download  DysRegSig_2.2.3.tar.gz, and install DysRegSig package from local path.
 
 ```{r, eval = FALSE}
 install.packages('DysRegSig_2.2.3.tar.gz', type = 'source',repos = NULL)
