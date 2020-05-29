@@ -1,4 +1,4 @@
-CHANGES IN VERSION 2.2.2
+CHANGES IN VERSION 2.2.3
 -------------------------
     o Add the fitness function fitness.AUC() for building signature for binary cancer phenotypes.   	
 	 
