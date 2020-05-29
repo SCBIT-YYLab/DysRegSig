@@ -4,7 +4,7 @@ author: "Quanxue Li, Wentao Dai, Jixiang Liu, Yi-Xue Li, Yuan-Yuan Li."
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 bibliography: bibliography.bib
-abstract: <p>This package provides robust tools to perform gene dysregulation analysis. The main improvement of DysRegSig is that it can consider the combinational effect of multiple regulators to target in gene dysregulation analysis. DysRegSig also offers tools to rank dysregulated regulations and TFs, build mechanistic signature with gene dysregulations by using genetic algorithm.</p>
+abstract: <p>DysRegSig is capable of robustly exploring gene dysregulations from high-dimensional expression data with cooperativity and synergy between regulators and several other transcriptional regulation rules taken into consideration. DysRegSig also offers tools to rank dysregulated regulations and TFs, build mechanistic signature with gene dysregulations by using genetic algorithm.</p>
 vignette: >
   %\VignetteIndexEntry{DysRegSig}
   %\VignetteEngine{knitr::rmarkdown}
@@ -70,15 +70,40 @@ head(dysreg.res)
 
 ```
 
+**DysRegSig** also offers two other methods for gene dysregulation analysis, `DiffCor` and `DiffCorPlus`. DiffCor uses Fisher's z-test to analyze the differences of correlation coefficients between two conditions for each TF-target in reference GRN. 
+```{r, eval = FALSE}
+diffcor.res <- DiffCor(exp.1 = exp.1, exp.2 = exp.2, tf2tar, 
+                       cor.method = 'pearson', p.adj = 'BH',
+                       verbose = TRUE)
+                       
+## set cutoff
+diffcor.res <- subset(diffcor.res,p.val < 0.05)
+head(diffcor.res)
+```
+
+DiffCorPlus combines two factors proposed in DysRegSig, target expression change and the regulator’s contribution to the target with DiffCor.
+```{r, eval = FALSE}
+
+diffcor.p.res <- DiffCorPlus(exp.1 = exp.1,exp.2 = exp.2, tf2tar, 
+                             de.genes = NULL, de.pval = 0.05, 
+                             cor.method = 'pearson', p.adj = 'BH')
+
+## set cutoff
+diffcor.p.res <- subset(diffcor.p.res,p.val < 0.05)
+head(diffcor.p.res)
+```
+
+
 ### Visualize expression of gene dysregulation between conditions
 
-The expression pattern of two genes in one gene dysregulaiton could be visulazied by function `plotDysRegExp` (**Figure 1**). In order to more clearly visualize the differences of gene regulation between conditions, `plotDysRegExp` adds the regression lines and confidence interval shadows calculated by single variable regression for each condtion. 
+The expression pattern of two genes in one gene dysregulaiton could be visulazied by function `plotDysRegExp` (**Figure 1**). In order to more clearly visualize the differences of gene regulation between conditions, `plotDysRegExp` adds the regression lines and confidence interval shadows calculated by single variable regression for each condition. 
 
 ```{r, eval = FALSE}
 plotDysregExp(tf = dysreg.res$TF[1], tar = dysreg.res$Target[1],
-              exp.1 = exp.1,exp.2 = exp.2, 
-              exp1.lab = 'Response',exp2.lab = 'No-response',
-              dysreg = dysreg.res, method ='dysreg', conf.int.level = 0.95)
+              exp.1 = exp.1, exp.2 = exp.2, 
+              exp1.label = 'Response', exp2.label = 'No-response',
+              dysreg = dysreg.res, method ='DysReg', 
+              conf.int.level = 0.95)
 ```
 
 ![title](figures/figure_1.png)
@@ -92,7 +117,7 @@ plotDysregExp(tf = dysreg.res$TF[1], tar = dysreg.res$Target[1],
 
 ```{r, eval = FALSE}
 reg.rank <- RankDysReg(dysreg.res)
-reg.rank[1:10,]
+head(reg.rank)
 
 ```
 
@@ -100,7 +125,7 @@ In addition, `RankDysTF` could be used to quantify and rank the degree of TFs.
 
 ```{r, eval = FALSE}
 tf.rank <- RankDysTF(dysreg.res)
-tf.rank[1:10,]
+head(tf.rank)
 
 ```
 
@@ -108,14 +133,14 @@ tf.rank[1:10,]
 
 Most of current efforts in the field of developoing signature for cancer precision medicine are paying much more attention to predictive accuracy than to molecular mechanistic interpretability. However, there is a general consensus among both clinicians and biologists about the need for signatures with mechanistic interpretability as well as high predictive accuracy for cancer precision medicine [@Robinson2013]. It could also be expected that taking mechanistic interpretation into consideration would further enhance the predictive accuracy and robustness of signatures in clinical application [@Robinson2013]. Specifically, gene dysregulation analysis has been proved to have the potential to provide functionally relevant seeds for building predictive signatures with both predictive power and explanatory power, which could offer some mechanistic information for signature.
 
-In **DysRegSig**, `combineDysReg` could be used to build predictive signature with mechanistic interpretability by searching the best combinatin of dysregulations with using genetic algorithm.
+In **DysRegSig**, `combineDysReg` could be used to screen the dysregulations that are robustly associated with a specific phenotype by using genetic algorithm and combine the dysregulations for constructing signature. In this example, the dysregulations that have robustly association with drug response were screened out, which could be used to construct mechanistic signature for drug response.
 
 ```{r, eval = FALSE}
 dysreg <- dysreg.res[,1:2]
 
 pheno.data <- ClinData[,c("sample", "binaryResponse")]
 pheno.data <- pheno.data[!is.na(pheno.data$binaryResponse),]
-colnames(pheno.data) <- "clin.factor"
+colnames(pheno.data)[2] <- "clin.factor"
 head(pheno.data)
 
 ## use genetic algorithm to search the best combination of dysregulations
@@ -124,7 +149,7 @@ combdysreg.out <- combineDysreg(dysreg = dysreg, exp.data = ExpData,
                                 pheno.data = pheno.data, 
                                 pop.size = 1000, select.rate=0.2, 
                                 mut.rate=0.1, add.rate=0.1, 
-                                topN = 10, train.rate = 0.6, iter = 5)
+                                topN = 10, train.rate = 0.6, iter = 100)
 
 ## Check the output of combineDysreg
 best.fit <- combdysreg.out$best.fitness
@@ -134,6 +159,7 @@ head(best.fit)
 ## THe example for selceting the gene dysregulations that are robustly associated with the phenotype.
 
 # calculate the frequence of each each dysregualtion among the top N best individuals
+freq.res <- vector()
 for(i in 1:100){
   start <- 10*i-9
   end <- 10*i
