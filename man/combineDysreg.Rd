@@ -62,8 +62,8 @@ dysreg.out <- DysReg(exp.1 = exp.1, exp.2 = exp.2, tf2tar,
                      pValue = 0.01, ci = 0.90, verbose = T)
                      
 dysreg.res <- dysreg.out$dysreg
-
-dysreg <- dysreg.res[,1:2]
+dysreg.rank <- RankDysReg(dysreg = dysreg.res)
+dysreg <- dysreg.rank[1:100,1:2]
 
 pheno.data <- ClinData[,c("sample", "binaryResponse")]
 pheno.data <- pheno.data[!is.na(pheno.data$binaryResponse),]
